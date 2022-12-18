@@ -1,19 +1,6 @@
-use Library;
+create schema Library;
 
-create table Member(
--- attributes
-	member_id int not null auto_increment,
-    first_name varchar(20) not null,
-    last_name varchar(20), -- can be null
-    phone varchar(15) not null,
-    email varchar(50),
-    date_of_birth date not null ,
-    student_id int,
-    faculty_id int,
-    
-    -- constraints
-    primary key(member_id)
-	);
+use Library;
 
 create table Student(
 -- attributes
@@ -33,6 +20,23 @@ create table Faculty(
     -- constraints
     primary key(faculty_id)
     );
+
+
+create table Member(
+-- attributes
+	member_id int not null auto_increment,
+    first_name varchar(20) not null,
+    last_name varchar(20), -- can be null
+    phone varchar(15) not null,
+    email varchar(50),
+    date_of_birth date not null ,
+    student_id int,
+    faculty_id int,
+    
+    -- constraints
+    primary key(member_id)
+	);
+
     
 create table Book(
 -- attributes
