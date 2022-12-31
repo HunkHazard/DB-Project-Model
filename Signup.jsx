@@ -76,8 +76,17 @@ export default function Signup() {
     if (day < 1 || day > 31) {
       return false;
     }
+    alert("validatebirthday")
     return true;
   };
+
+  function testClass(inputElement) {
+    /^[0-9]{1,2}$/.test(inputElement);
+  }
+
+  function testSection(inputElement) {
+    /^[A-Za-z]$/.test(inputElement);
+  }
 
   const submitProfile = () => {
 
@@ -119,7 +128,6 @@ export default function Signup() {
 
 
   function validateEverything() {
-    let flag = false;
     if (
       testUsername(username) &&
       testPass(password) &&
@@ -130,8 +138,13 @@ export default function Signup() {
       validateBirthday(dateofbirth) &&
       password === confirmpassword
     ) {
-      flag = true;
-      console.log("validate everything");
+      if (student &&
+        testClass(stdclass) &&
+        testSection(section)) {
+        console.log("validate everything (student)");
+        submitProfile();
+      }
+      console.log("validate everything (faculty)")
       submitProfile();
     }
     else {
